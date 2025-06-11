@@ -1,0 +1,148 @@
+.navbar {
+  background-color: var(--section-background);
+  overflow: visible; /* Ensure content is not clipped */
+  position: relative; /* Set to relative for absolute positioning of children */
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: flex; /* Ensure navbar is a flex container */
+  justify-content: space-between; /* Distribute space between items */
+  align-items: center;
+  padding: 0 20px; /* Reset padding to a standard value */
+}
+
+.navbar-list {
+  list-style-type: none; /* Remove bullet points */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center; /* Changed to center for better vertical alignment */
+  height: 60px; /* Fixed height for navbar */
+}
+
+.navbar-list li::before { /* Target the pseudo-element directly */
+  content: none; /* Remove the bullet point */
+}
+
+.navbar-item a {
+  display: block;
+  color: var(--text-color-primary);
+  text-align: center;
+  padding:   20px 25px 16px 25px; /* Adjusted padding to move text closer to the lower border */
+  text-decoration: none;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-item a:hover {
+  background-color: var(--primary-color);
+  color: var(--light-text-color); /* Revert to light text color for readability */
+  text-shadow: none; /* Remove text shadow */
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  display: flex;
+  align-items: center;
+  /* Remove absolute positioning */
+  /* position: absolute; */
+  /* right: 20px; */
+  /* top: 50%; */
+  /* transform: translateY(-50%); */
+  margin-left: auto; /* Push the toggle button to the far right */
+}
+
+.toggle-track {
+  width: 70px; /* Larger track width */
+  height: 34px; /* Larger track height */
+  background-color: #555; /* Darker grey for track in dark mode */
+  border-radius: 17px;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-thumb {
+  width: 28px;
+  height: 28px;
+  background-color: #f0f0f0; /* Light grey for thumb */
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.theme-icon {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the icon */
+  z-index: 1; /* Ensure icon is above thumb */
+  transition: opacity 0.3s ease;
+}
+
+/* Dark mode adjustments */
+.theme-toggle.dark-mode .toggle-thumb {
+  transform: translateX(0); /* Thumb stays left */
+}
+
+.theme-toggle.dark-mode .theme-icon {
+  opacity: 1; /* Sun icon visible */
+}
+
+/* Light mode adjustments */
+.theme-toggle.light-mode .toggle-track {
+  background-color: #cccccc; /* Lighter track in light mode */
+}
+
+.theme-toggle.light-mode .toggle-thumb {
+  transform: translateX(36px); /* Move thumb to the right */
+  background-color: #ffc107; /* Yellow for thumb in light mode */
+}
+
+.theme-toggle.light-mode .theme-icon {
+  opacity: 1; /* Moon icon visible */
+}
+
+/* Specific adjustment for Navbar links to use text-color-primary */
+.navbar-list li a {
+  color: var(--text-color-primary);
+}
+
+.navbar-list li a:hover {
+  color: var(--light-text-color);
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 5px 0; /* Further adjust padding */
+  }
+
+  .navbar-list {
+    flex-direction: column;
+    height: auto; /* Let height adjust to content */
+    width: 100%;
+  }
+
+  .navbar-item a {
+    padding: 8px 0; /* Reduced padding for stacked links */
+    font-size: 1em; /* Slightly smaller font size */
+    width: 100%;
+  }
+
+  .theme-toggle {
+    margin: 8px auto; /* Adjust margin */
+    position: static;
+    transform: none;
+  }
+} 

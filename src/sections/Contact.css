@@ -1,0 +1,156 @@
+.contact-section {
+  padding: 80px 20px;
+  text-align: center;
+  background-color: var(--section-background);
+  color: var(--text-color-primary);
+}
+
+.contact-section h2 {
+  color: var(--header-color);
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.contact-section h3 {
+  color: var(--sub-header-color);
+  font-size: 1.8em;
+  margin-bottom: 40px;
+}
+
+.contact-section p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+  font-size: 1.1em;
+}
+
+.contact-form {
+  max-width: 700px;
+  margin: 40px auto 0 auto; /* Added top margin for spacing from previous elements */
+  padding: 40px;
+  border-radius: 12px;
+  background-color: var(--card-background);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Enhanced shadow */
+  display: grid;
+  gap: 20px; /* Spacing between form elements */
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: var(--text-color-primary);
+  font-size: 1em;
+  text-align: left;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  background-color: var(--input-background);
+  color: var(--card-text-color);
+  font-size: 1em;
+  box-sizing: border-box; /* Include padding in element's total width and height */
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: var(--text-color-primary);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-form button {
+  background-color: var(--button-background);
+  color: var(--light-text-color);
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2em;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 20px;
+}
+
+.contact-form button:hover {
+  background-color: var(--button-hover-background);
+  transform: translateY(-3px);
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* Space between icons */
+  margin-top: 30px;
+}
+
+.social-icon {
+  width: 60px; /* Size of the icons */
+  height: 60px;
+  border-radius: 50%; /* Make them circular */
+  padding: 10px; /* Padding inside the circle */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+.social-icon:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+/* Specific icon background colors for branding */
+.social-icon[alt="Gmail Icon"] {
+  background-color: #D44638; /* Google Red */
+}
+
+.social-icon[alt="LinkedIn Icon"] {
+  background-color: #0A66C2; /* LinkedIn Blue */
+}
+
+.social-icon[alt="GitHub Icon"] {
+  background-color: #333; /* GitHub Black */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 15px 10px; /* Further reduced padding */
+  }
+
+  .contact-section h2 {
+    font-size: 1.6em; /* Further adjusted heading size */
+    margin-bottom: 8px;
+  }
+
+  .contact-section h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+
+  .contact-form {
+    padding: 25px;
+    margin-top: 30px;
+  }
+
+  .contact-form button {
+    padding: 12px 25px;
+    font-size: 1.1em;
+  }
+
+  .social-links {
+    gap: 8px; /* Further reduced gap between icons */
+    margin-top: 8px;
+  }
+
+  .social-icon {
+    width: 30px; /* Even smaller icons */
+    height: 30px;
+    padding: 3px;
+  }
+} 

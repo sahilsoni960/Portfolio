@@ -1,0 +1,68 @@
+.home-section {
+  background-image: url('/white-background.jpg'); /* Updated to the new white background image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--text-color); /* Change text color for better contrast against white background */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 60px); /* Adjust for navbar height */
+  position: relative; /* Needed for overlay */
+}
+
+.home-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.5); /* Light overlay for text readability */
+  z-index: 1;
+}
+
+.home-section h1,
+.home-section h3,
+.home-section p {
+  position: relative;
+  z-index: 2; /* Bring text above the overlay */
+}
+
+.home-section h1 {
+  font-size: 4em;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.home-section h3 {
+  font-size: 1.8em;
+  color: var(--text-color);
+  margin-bottom: 20px;
+}
+
+.home-section p {
+  max-width: 800px;
+  font-size: 1.3em;
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .home-section {
+    padding: 100px 15px; /* Adjust padding for mobile */
+  }
+
+  .home-section h1 {
+    font-size: 3em;
+  }
+
+  .home-section h3 {
+    font-size: 1.5em;
+  }
+
+  .home-section p {
+    font-size: 1.1em;
+  }
+} 

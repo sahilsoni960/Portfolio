@@ -1,0 +1,121 @@
+.skills-section {
+  background-color: var(--background-light);
+  color: var(--text-color);
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.skills-section h2 {
+  color: var(--secondary-color);
+  margin-bottom: 40px;
+  font-size: 2.5em;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.skills-category {
+  background-color: #2a2a40;
+  border-radius: 10px;
+  padding: 30px;
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  text-align: left;
+}
+
+.skills-category h3 {
+  color: var(--primary-color);
+  margin-bottom: 25px;
+  font-size: 1.8em;
+  text-align: center;
+}
+
+.skills-category ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+}
+
+.skills-category li {
+  background-color: #3b3b5c;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  font-size: 0.9em;
+  min-height: 80px; /* Ensure consistent height for skill boxes */
+  list-style-type: none; /* Ensure no default list style */
+}
+
+.skills-category li::before {
+  content: none; /* Remove bullet points from skill items */
+}
+
+.skills-category li:hover {
+  transform: translateY(-5px);
+  background-color: var(--primary-color);
+}
+
+.skills-category li img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 8px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .skills-section {
+    padding: 30px 15px; /* Adjusted padding for mobile */
+  }
+
+  .skills-section h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+  }
+
+  .skills-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .skills-category {
+    width: 90%;
+    max-width: none;
+    padding: 20px; /* Adjusted padding for category boxes */
+  }
+
+  .skills-category h3 {
+    font-size: 1.6em;
+    margin-bottom: 20px;
+  }
+
+  .skills-category ul {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Adjust min-width for skill items */
+  }
+
+  .skills-category li {
+    font-size: 0.85em;
+    padding: 12px;
+    min-height: 70px;
+  }
+
+  .skills-category li img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+  }
+} 

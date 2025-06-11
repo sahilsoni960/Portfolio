@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+:root {
+  --primary-color: #3498db; /* A vibrant blue for accents */
+  --secondary-color: #2c3e50; /* A dark blue for backgrounds */
+  --text-color: #000000; /* Pure black text for light backgrounds */
+  --light-text-color: #FFFFFF; /* Pure white text for dark backgrounds */
+  --accent-color: #e74c3c; /* A red for highlights */
+  --background-light: #f4f7f6; /* Light background for sections */
+  --background-dark: #2f3640; /* Dark background for sections */
+
+  /* Dark theme variables (default) */
+  --body-background: var(--background-dark);
+  --text-color-primary: var(--light-text-color);
+  --section-background: var(--background-dark);
+  --header-color: var(--primary-color);
+  --sub-header-color: var(--accent-color);
+  --card-background: #2a2a40;
+  --card-text-color: var(--light-text-color);
+  --input-background: #3b3b5c;
+  --input-border: #555;
+  --button-background: var(--accent-color);
+  --button-hover-background: var(--primary-color);
+}
+
+[data-theme="light"] {
+  --body-background: #ffffff;
+  --text-color-primary: #333333;
+  --section-background: #f0f2f5;
+  --header-color: #007bff;
+  --sub-header-color: #28a745;
+  --card-background: #ffffff;
+  --card-text-color: #333333;
+  --input-background: #f8f9fa;
+  --input-border: #ced4da;
+  --button-background: #007bff;
+  --button-hover-background: #0056b3;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  color: var(--text-color-primary);
+  background-color: var(--body-background);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Basic Section Styling */
+section {
+  padding: 80px 40px;
+  margin-bottom: 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out, background-color 0.3s ease;
+  background-color: var(--section-background);
+}
+
+section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+h2 {
+  font-size: 2.5em;
+  color: var(--header-color);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.8em;
+  color: var(--sub-header-color);
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+p, li {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li::before {
+  content: '\2022'; /* Bullet point */
+  color: var(--primary-color);
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+/* Removed generic a:hover to avoid conflicts with navbar styles */
+/*
+a:hover {
+  text-decoration: underline;
+}
+*/
+
+/* Navbar specific styles */
+.navbar {
+  background-color: var(--section-background);
+  color: var(--text-color-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-list li a {
+  color: var(--text-color-primary);
+}
+
+/* Skills section specific styles */
+.skills-category {
+  background-color: var(--card-background);
+  color: var(--card-text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.skills-category li {
+  background-color: var(--input-background);
+  color: var(--card-text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.skills-category li:hover {
+  background-color: var(--button-hover-background);
+}
+
+/* Contact section specific styles */
+.contact-form {
+  background-color: var(--card-background);
+  transition: background-color 0.3s ease;
+}
+
+.contact-form label {
+  color: var(--text-color-primary);
+}
+
+.contact-form input,
+.contact-form textarea {
+  background-color: var(--input-background);
+  border-color: var(--input-border);
+  color: var(--card-text-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: var(--text-color-primary);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-form button {
+  background-color: var(--button-background);
+  color: var(--light-text-color);
+  transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: var(--button-hover-background);
+  transform: translateY(-3px);
+}
+
+.section-divider {
+  width: 80%;
+  margin: 40px auto;
+  border-bottom: 2px solid var(--primary-color);
+  opacity: 0.7;
+  transition: border-color 0.3s ease;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  section {
+    padding: 60px 15px; /* Adjust section padding for mobile */
+  }
+
+  h2 {
+    font-size: 2em; /* Decrease heading size for mobile */
+  }
+
+  h3 {
+    font-size: 1.5em;
+  }
+
+  p, li {
+    font-size: 1em;
+  }
+
+  img {
+    max-width: 100%; /* Ensure images don't overflow */
+    height: auto;
+  }
+
+  /* Add more specific responsive rules for other sections if needed */
+}
+
+/* Navbar specific styles */
+.navbar {
+  background-color: var(--section-background);
+  color: var(--text-color-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-list li a {
+  color: var(--text-color-primary);
+} 
