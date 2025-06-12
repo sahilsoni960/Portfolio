@@ -1,3 +1,4 @@
+/* Ensure the home section itself is a flex container for easy centering */
 .home-section {
   background-image: url('/white-background.jpg'); /* Updated to the new white background image */
   background-size: cover;
@@ -5,12 +6,18 @@
   background-repeat: no-repeat;
   color: var(--text-color); /* Change text color for better contrast against white background */
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: grid; /* Changed to grid for more precise alignment */
+  grid-template-columns: 1fr auto; /* Left content area takes flexible space, profile pic auto */
+  grid-template-areas: "left-content-area profile-pic"; /* Define grid areas */
+  gap: 40px; /* Space between grid items */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
   min-height: calc(100vh - 60px); /* Adjust for navbar height */
   position: relative; /* Needed for overlay */
+  padding: 0 50px; /* Increased padding */
+  box-sizing: border-box;
+  max-width: 1400px; /* Limit the maximum width of the section */
+  margin: 0 auto; /* Center the section horizontally */
 }
 
 .home-section::before {
@@ -24,11 +31,34 @@
   z-index: 1;
 }
 
+.left-content-area {
+  grid-area: left-content-area; /* Assign to grid area */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Align content to the left */
+  text-align: left; /* Ensure text is left-aligned */
+  /* max-width: 800px; */ /* Removed to allow it to fill its 1fr space */
+}
+
+.home-text-content {
+  /* grid-area: text-content; */ /* Removed as it's now part of left-content-area */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Align text content to the start (left) */
+  text-align: left; /* Ensure text itself is left-aligned */
+}
+
 .home-section h1,
 .home-section h3,
 .home-section p {
   position: relative;
   z-index: 2; /* Bring text above the overlay */
+  max-width: none; /* Remove max-width for grid control */
+  margin-left: 0; /* Remove auto margins */
+  margin-right: 0; /* Remove auto margins */
+  text-align: left; /* Align text to the left within its grid cell */
 }
 
 .home-section h1 {
@@ -49,11 +79,93 @@
   line-height: 1.8;
 }
 
-@media (max-width: 768px) {
+/* --- Profile Picture Styles --- */
+.profile-pic {
+  grid-area: profile-pic; /* Assign to grid area */
+  width: 275px; /* Larger size for impact */
+  height: 275;
+  border-radius: 50%; /* Changed to a perfect circle */
+  object-fit: cover;
+  margin-bottom: 0; /* Remove margin-bottom as it's now in a grid */
+  /* border: 4px solid var(--primary-color); */ /* Removed for a cleaner look */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* More pronounced shadow */
+  background-color: var(--background-color); 
+  transition: all 0.4s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+  filter: grayscale(40%); /* Grayscale by default */
+  margin-right: 60px; /* Adjust to move the image left */
+}
+
+.profile-pic:hover {
+  transform: scale(1.04); /* Slightly enlarge */
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4); /* More pronounced shadow */
+  /* border-color: var(--primary-color-dark); */ /* Removed as border is gone */
+  /* outline: 4px solid var(--primary-color); */ /* Removed for a cleaner look */
+  /* outline-offset: 2px; */ /* Removed for a cleaner look */
+  filter: grayscale(10%); /* Full color on hover */
+  background-color: var(--background-color); /* Keep same background on hover */
+}
+
+/* --- Social Icons Styles --- */
+.social-icons {
+  /* grid-area: social-icons; */ /* Removed as it's now part of left-content-area */
+  display: flex;
+  flex-direction: row; /* Arrange icons horizontally */
+  justify-content: flex-start; /* Align icons to the start (left) */
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 20px; /* Space below icons and before text */
+  position: relative;
+  z-index: 2;
+}
+
+.social-icons a {
+  color: var(--text-color);
+  font-size: 2.2em;
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+  color: var(--primary-color);
+  transform: scale(1.2);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
   .home-section {
-    padding: 100px 15px; /* Adjust padding for mobile */
+    grid-template-columns: 1fr; /* Stack columns on smaller screens */
+    grid-template-areas:
+      "profile-pic"
+      "left-content-area"; /* Stack areas vertically */
+    padding: 100px 30px;
+    text-align: center; /* Center text when stacked */
   }
 
+  .left-content-area {
+    align-items: center; /* Center content when stacked */
+    text-align: center; /* Center text when stacked */
+  }
+
+  .home-text-content {
+    align-items: center; /* Center items when stacked */
+    text-align: center; /* Center text when stacked */
+  }
+
+  .social-icons {
+    flex-direction: row; /* Arrange icons horizontally when stacked */
+    justify-content: center; /* Center icons when stacked */
+    margin-top: 30px; /* Add space above icons when stacked */
+    margin-bottom: 20px; /* Adjust margin for stacking */
+  }
+
+  .profile-pic {
+    margin-bottom: 30px; /* Add margin back when stacked */
+  }
+}
+
+@media (max-width: 768px) {
   .home-section h1 {
     font-size: 3em;
   }
@@ -65,4 +177,30 @@
   .home-section p {
     font-size: 1.1em;
   }
-} 
+
+  .profile-pic {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-pic {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+  }
+
+  .home-section h1 {
+    font-size: 2em;
+  }
+
+  .home-section h3 {
+    font-size: 1em;
+  }
+
+  .home-section p {
+    font-size: 0.9em;
+  }
+}
