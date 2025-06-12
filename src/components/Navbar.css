@@ -29,16 +29,32 @@
   display: block;
   color: var(--text-color-primary);
   text-align: center;
-  padding:   20px 25px 16px 25px; /* Adjusted padding to move text closer to the lower border */
+  padding: 20px 25px 16px 25px; /* Original padding */
   text-decoration: none;
   font-size: 1.1em;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  position: relative; /* Needed for pseudo-element positioning */
+  overflow: hidden; /* Ensures the expanding line stays within bounds */
+  transition: color 0.3s ease; /* Only text color transition */
+}
+
+.navbar-item a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%; /* Start from the center horizontally */
+  width: 0; /* Initially invisible */
+  height: 2px; /* Thickness of the underline */
+  background-color: var(--primary-color); /* Color of the underline */
+  transform: translateX(-50%); /* Adjust for true centering when width is 0 */
+  transition: width 0.3s ease; /* Smooth transition for width expansion */
 }
 
 .navbar-item a:hover {
-  background-color: var(--primary-color);
-  color: var(--light-text-color); /* Revert to light text color for readability */
-  text-shadow: none; /* Remove text shadow */
+  color: var(--primary-color); /* Text color changes on hover */
+}
+
+.navbar-item a:hover::after {
+  width: 100%; /* Expand to full width on hover */
 }
 
 .theme-toggle {
@@ -115,10 +131,6 @@
 /* Specific adjustment for Navbar links to use text-color-primary */
 .navbar-list li a {
   color: var(--text-color-primary);
-}
-
-.navbar-list li a:hover {
-  color: var(--light-text-color);
 }
 
 @media (max-width: 768px) {

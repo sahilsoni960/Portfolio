@@ -15,6 +15,31 @@ function App() {
   useEffect(() => {
     document.body.setAttribute('data-theme', theme);
     initializeIntersectionObserver();
+
+    // Scroll to Top Button Logic
+    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+    if (scrollToTopBtn) {
+      const handleScroll = () => {
+        if (window.scrollY > 200) { // Show button after scrolling down 200px
+          scrollToTopBtn.classList.add('show');
+        } else {
+          scrollToTopBtn.classList.remove('show');
+        }
+      };
+
+      const handleClick = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' }); // Smooth scroll to top
+      };
+
+      window.addEventListener('scroll', handleScroll);
+      scrollToTopBtn.addEventListener('click', handleClick);
+
+      // Cleanup event listeners on component unmount
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+        scrollToTopBtn.removeEventListener('click', handleClick);
+      };
+    }
   }, [theme]);
 
   const toggleTheme = () => {
@@ -30,6 +55,7 @@ function App() {
       <Projects />
       <div className="section-divider"></div>
       <Contact />
+      <button id="scrollToTopBtn" title="Go to top"><i className="fas fa-arrow-up"></i></button>
     </>
   )
 }

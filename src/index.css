@@ -233,4 +233,82 @@ a:hover {
 
 .navbar-list li a {
   color: var(--text-color-primary);
+}
+
+/* Scroll to Top Button */
+#scrollToTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--primary-color);
+  color: var(--light-text-color);
+  border: none;
+  border-radius: 50%; /* Make it a perfect circle */
+  width: 40px; /* Smaller button width */
+  height: 40px; /* Smaller button height */
+  display: flex; /* Use flexbox for centering content */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  cursor: pointer;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+  z-index: 1000; /* Ensure it's on top of other content */
+}
+
+#scrollToTopBtn i {
+  font-family: 'Font Awesome 5 Free'; /* Explicitly set Font Awesome font for the icon */
+  font-weight: 900; /* Use the solid icon weight */
+  font-style: normal; /* Ensure no italicization */
+  line-height: 1; /* Ensure proper line height for icon centering */
+  vertical-align: middle; /* Align icon vertically */
+  box-sizing: content-box; /* Ensure proper box sizing for icon */
+  font-size: 1.2em; /* Smaller arrow icon */
+  color: var(--light-text-color); /* Icon color */
+}
+
+#scrollToTopBtn.show {
+  opacity: 1; /* Show when 'show' class is added */
+  pointer-events: auto; /* Enable interaction */
+}
+
+#scrollToTopBtn:hover {
+  background-color: var(--primary-color-dark); /* Darken background on hover */
+  transform: translateY(-3px); /* Slight lift on hover */
+}
+
+@media (max-width: 768px) {
+  #scrollToTopBtn {
+    width: 35px; /* Even smaller button width for mobile */
+    height: 35px; /* Even smaller button height for mobile */
+    bottom: 15px; /* Adjust position for mobile */
+    right: 15px; /* Adjust position for mobile */
+  }
+
+  #scrollToTopBtn i {
+    font-size: 1em; /* Even smaller arrow icon for mobile */
+  }
+
+  section {
+    padding: 60px 15px; /* Adjust section padding for mobile */
+  }
+
+  h2 {
+    font-size: 2em; /* Decrease heading size for mobile */
+  }
+
+  h3 {
+    font-size: 1.5em;
+  }
+
+  p, li {
+    font-size: 1em;
+  }
+
+  img {
+    max-width: 100%; /* Ensure images don't overflow */
+    height: auto;
+  }
+
+  /* Add more specific responsive rules for other sections if needed */
 } 
