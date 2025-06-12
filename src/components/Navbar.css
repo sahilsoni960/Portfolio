@@ -4,6 +4,7 @@
   position: relative; /* Set to relative for absolute positioning of children */
   top: 0;
   width: 100%;
+  margin: 0; /* Revert margin to default */
   z-index: 1000;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   display: flex; /* Ensure navbar is a flex container */
@@ -18,7 +19,7 @@
   padding: 0;
   display: flex;
   align-items: center; /* Changed to center for better vertical alignment */
-  height: 60px; /* Fixed height for navbar */
+  height: 50px; /* Reduced height for navbar */
 }
 
 .navbar-list li::before { /* Target the pseudo-element directly */
@@ -74,35 +75,41 @@
 }
 
 .toggle-track {
-  width: 70px; /* Larger track width */
-  height: 34px; /* Larger track height */
+  width: 40px; /* Even smaller track width */
+  height: 20px; /* Even smaller track height */
   background-color: #555; /* Darker grey for track in dark mode */
-  border-radius: 17px;
+  border-radius: 10px;
   position: relative;
   transition: background-color 0.3s ease;
 }
 
 .toggle-thumb {
-  width: 28px;
-  height: 28px;
+  width: 16px;
+  height: 16px;
   background-color: #f0f0f0; /* Light grey for thumb */
   border-radius: 50%;
-  position: absolute;
-  top: 3px;
-  left: 3px;
+  position: relative; /* Change to relative for consistent positioning */
+  /* Removed top and left to rely on flexbox centering */
+  /* top: 2px; */
+  /* left: 2px; */
   transition: transform 0.3s ease, background-color 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: flex; /* Make thumb a flex container */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
 }
 
 .theme-icon {
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Center the icon */
+  width: 10px; /* Adjusted icon width */
+  height: 10px; /* Adjusted icon height */
+  display: block; /* Ensure it behaves as a block element */
+  margin: 0; /* Remove any default margin */
+  padding: 0; /* Remove any default padding */
+  line-height: 1; /* Ensure proper line height for icon centering */
+  vertical-align: middle; /* Align icon vertically */
   z-index: 1; /* Ensure icon is above thumb */
   transition: opacity 0.3s ease;
+  flex-shrink: 0; /* Prevent icon from shrinking */
 }
 
 /* Dark mode adjustments */
@@ -120,7 +127,7 @@
 }
 
 .theme-toggle.light-mode .toggle-thumb {
-  transform: translateX(36px); /* Move thumb to the right */
+  transform: translateX(24px); /* Move thumb to the right based on new size */
   background-color: #ffc107; /* Yellow for thumb in light mode */
 }
 
