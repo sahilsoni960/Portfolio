@@ -27,7 +27,7 @@ function Projects() {
         <li>Worked on Design and Planning of Framework structure to handle parallel certification of different PAM combinations supported by MDM Solution</li>
         <li>Leveraged Jenkins Pipelines and Ant scripts for parallel deployment of builds, validating API and UI tests across various databases, and generate test reports for sanity of builds</li>
       </ul>
-      <h3>Rft Automation</h3>
+      <h3>RFT Automation</h3>
       <ul>
         <li>Automation using IBM RFT (Rational Functional Testing), Designed Framework for RFT Acceptance Testing based on Java to test Hub Console (Swing Based Application)</li>
         <li>Developed Regression and Functional Tests which involved extensive scripting for test cases</li>
