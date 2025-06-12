@@ -162,6 +162,8 @@
 
   .profile-pic {
     margin-bottom: 30px; /* Add margin back when stacked */
+    margin-right: auto; /* Remove the specific right margin on mobile */
+    margin-left: auto; /* Center the image on mobile */
   }
 }
 
