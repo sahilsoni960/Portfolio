@@ -16,7 +16,7 @@ function Projects() {
         <li>Developed robust Selenium Framework for automated testing of MDM Entity360 UI and Customer360 UI</li>
         <li>This Framework is based on Page Object Model and includes Sanity Tests and Regression Tests for testing MDM Solutions UI Screens</li>
       </ul>
-      <h3>Tqm Dashboard</h3>
+      <h3>TQM Dashboard</h3>
       <ul>
         <li>Lead the project to develop Total Quality Management - a dashboard created to track standardization for Product Releases using React, Springboot and MongoDB</li>
         <li>The Dashboard allows to score different phases of release like Planning, Execution and Delivery, while ensuring Quality Assurance by tracking the quality of different Releases</li>
