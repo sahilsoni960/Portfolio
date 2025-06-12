@@ -12,7 +12,7 @@
   gap: 40px; /* Space between grid items */
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
-  min-height: calc(100vh - 60px); /* Adjust for navbar height */
+  min-height: calc(100vh - 100px); /* Reduced height for the section */
   position: relative; /* Needed for overlay */
   padding: 0 50px; /* Increased padding */
   box-sizing: border-box;
