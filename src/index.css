@@ -192,10 +192,17 @@ a:hover {
 
 .section-divider {
   width: 80%;
-  margin: 40px auto;
-  border-bottom: 2px solid var(--primary-color);
-  opacity: 0.7;
-  transition: border-color 0.3s ease;
+  height: 5px; /* Increased thickness for better visibility */
+  margin: 60px auto; /* Increased margin for more separation */
+  background-color: var(--primary-color); /* Use primary color as background */
+  opacity: 0.8; /* Slightly more opaque */
+  border-radius: 5px; /* Slightly rounded corners */
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+[data-theme="dark"] .section-divider {
+  background-color: var(--light-text-color); /* White background for dark mode */
+  opacity: 0.3; /* Increased opacity for better visibility in dark mode */
 }
 
 /* Responsive adjustments for smaller screens */
@@ -311,4 +318,10 @@ a:hover {
   }
 
   /* Add more specific responsive rules for other sections if needed */
-} 
+}
+
+[data-theme="dark"] .university-logo {
+  filter: brightness(1.2) contrast(1.1); /* Slightly increase brightness and contrast for dark mode */
+}
+
+/* Add more specific responsive rules for other sections if needed */ 

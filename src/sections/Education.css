@@ -1,0 +1,54 @@
+.education-entry {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--input-border);
+}
+
+.education-entry:last-child {
+  border-bottom: none;
+}
+
+.university-logo {
+  width: 150px;
+  height: auto;
+  margin-right: 35px;
+  flex-shrink: 0;
+  border-radius: 0;
+  object-fit: contain;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  background-color: #ffffff;
+  padding: 10px;
+}
+
+.education-details h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: var(--header-color);
+}
+
+.education-details p {
+  margin-bottom: 4px;
+  font-size: 1.05em;
+}
+
+@media (max-width: 768px) {
+  .education-entry {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .university-logo {
+    width: 100px;
+    height: auto;
+    margin-right: 0;
+    margin-bottom: 15px;
+    padding: 8px;
+  }
+}
+
+#education h2 {
+  margin-top: -20px;
+} 

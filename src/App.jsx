@@ -4,6 +4,7 @@ import About from './sections/About'
 import Skills from './sections/Skills'
 import Projects from './sections/Projects'
 import Contact from './sections/Contact'
+import Education from './sections/Education'
 import Navbar from './components/Navbar'
 import initializeIntersectionObserver from './utils/intersectionObserver'
 
@@ -53,6 +54,8 @@ function App() {
       <About />
       <Skills />
       <Projects />
+      <div className="section-divider"></div>
+      <Education />
       <div className="section-divider"></div>
       <Contact />
       <button id="scrollToTopBtn" title="Go to top"><i className="fas fa-arrow-up"></i></button>
